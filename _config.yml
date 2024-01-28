@@ -81,12 +81,12 @@ analytics:
 # Site Author
 author:
   name             : "Winston Tsui"
-  avatar           : "jaime_winston.jpg"
+  avatar           : "winston_library.jpg"
   bio              : "Computer Science Student, Senior, Dept. of EECS, Syracuse University"
   location         : "Syracuse, New York"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  # googlescholar    : "http://yourfullgooglescholarurl.com"
   email            : "witsui@syr.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
