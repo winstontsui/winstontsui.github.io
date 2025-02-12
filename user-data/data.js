@@ -4,72 +4,59 @@ export const bio = [
     "<strong> DevOps and Automation: </strong> Streamlining CI/CD workflows with GitHub Actions, Docker, and Kubernetes for scalable deployments. Preparing for GitHub Actions Certification.",
     "<strong> AI app development: </strong> Experimenting with local AI apps using Ollama and fine tuning models.",
     "<strong> Semantic Book Recommender: </strong> An NLP-based recommendation system with OpenAI, LangChain, FAISS, and Gradio to personalize book suggestions.",
-
-    "I am a software engineer with a strong foundation in backend development, mobile applications, infrastructure, and machine learning. My background spans mobile healthcare, data analytics, and pervasive health technologies, where I explored integrating technology to improve user well-being. Now, I focus on building scalable, high-performance systems that solve real-world problems."
 ];
 
+export const bio2 = [
+    "I am an aspiring software engineer🙏🤩 who loves creating cool solutions with technology. I love learning new topics and building amazing apps. My background is in app development, pervasive computing and machine learning. I'm looking for ways to improve software performance and efficiency. My current interest is in algorithmic trading, machine learning, and the automation of workflows. Outside of coding, I'm a huge fan of NYC trains and coffee. My favorite city is Montreal."
+];
+
+
 export const skills = [
-    "JavaScript, TypeScript, Angular, AngularJS, React, HTML5, CSS, Bootstrap",
-    "RxJS, NGXS, NGRX",
-    "Jenkins, JIRA, Webpack, Git",
+    "Java, Python, C, C++, Swift, JavaScript, TypeScript",
+    "React.js, Vue.js, Angular, SwiftUI",
+    "Django, Node.js, .Net",
+    "PyTorch, TensorFlow, Scikitlearn, Numpy, Pandas, Matplotlib, Jupyter",
+    "MongoDB, SQL Server, Postgresql, AWS, Azure",
+    "Scrum Master Certified, Jenkins, Jira, Maven, Postman, CI/CD, DevOps, Junit, Microservices, REST APIs, Apollo GraphQL, Docker, Kubernetes"
 ];
 
 export const experience = [{
-        title: "Shiprocket Private Limited",
-        duration: "September 2023 - Present",
-        subtitle: "Software Engineer",
+        title: "Palapa.ai",
+        duration: "May 2023 - August 2023",
+        subtitle: "Software Engineer Intern - Machine Learning",
         details: [
-            "Developed a design system using Stencil and Storybook that provides consistent UI components across platforms, ensuring a cohesive design.",
-            "Developed a dynamic support ticket panel that renders subcategories based on component IDs, handling up to 100 AWBs simultaneously.",
-            "Migrated 30+ modules from AngularJS to Angular 15 using Generative AI tools, reporting directly to the VP of Engineering.",
-            "Designed and implemented advanced features such as keyboard shortcuts, improving operational efficiency by 15 percent.",
-            "Took ownership of OKRs, collaborated with the product team, and mentored two junior developers, cutting their code review iterations and ensuring on-time feature delivery.",
+            "Improved object detection performance by 10% in the Flutter Android app, integrating the YOLOv8 AI vision model and ONNX framework.",
+            "Reduced app size on the Google Play Store by 50% through code optimization, reaching 500 daily active users within 6 weeks.",
+            "Refactored backend screen navigation routes using Dart extension methods, increasing the app's MVC architecture stability.",
+            "Collaborated with cross - functional UI / UX and marketing teams to prototype and test features, cutting product iteration cycles by 50%.",
+            "Created CI workflows using GitHub Actions, which reduced deployment times by 40% and allowed the team to deliver features quicker"
         ],
-        tags: ["JavaScript", "Angular", "Bootstrap", "AngularJs"],
-        icon: "truck ",
+        tags: ["Flutter", "Kotlin", "user"],
+        icon: "server",
     },
     {
-        title: "Biofourmis India Private Limited",
-        duration: "April 2022 - Jul 2023",
-        subtitle: "Software Engineer",
-        details: [
-            "Spearheaded the implementation of micro-frontends using Module Federation, enabling modular and scalable architecture.",
-            "Earned the Biofourmis Bravo Award for upgrading the application to support flexible operations across multiple geographies.",
-            "Enhanced performance and user experience by integrating Twilio-Video, Countly, and NGXS WebSocket for real-time data management.",
+        "title": "Cornell University",
+        "duration": "June 2024 – December 2024",
+        "subtitle": "Health Tech Research Assistant | New York, NY",
+        "details": [
+            "Implemented iOS background task management system using Swift and BackgroundTasks, increasing users’ task completion rates by 20%.",
+            "Added iOS notification features using Swift UserNotifications which increased the number of visits to our app by 30%.",
+            "Led the frontend development of a data extraction feature related to RAG pipeline using leading frameworks like Vue.js and ElementUI.",
+            "Fine-tuned our NLP health chatbot by adding significantly more data, which improved the bot’s accuracy by 20%."
         ],
-        tags: [
-            "JavaScript",
-            "Angular",
-            "RxJS",
-            "NGXS",
-            "TypeScript",
-            "RxState",
-            "Webpack",
-            "Optimization",
-        ],
-        icon: "heartbeat",
+        "tags": ["Swift", "Vue.js", "ElementUI", "NLP", "BackgroundTasks"],
+        "icon": "stethoscope"
     },
     {
-        title: "Novopay Solutions Private Limited",
-        duration: "June 2020 - April 2022",
-        subtitle: "Software Engineer",
-        details: [
-            "Built critical banking features including AePS services (eKYC, cash withdrawal, balance inquiry) used by over 1,00,000 retailers.",
-            "Developed QR code integration for wallet money loading, streamlining retailer workflows and reducing errors by 25 percent.",
-            "Integrated Clevertap analytics, Freshdesk ticketing, and chatbot services, enhancing user support and engagement.",
+        "title": "NYC Department of Design and Construction",
+        "duration": "June 2022 – August 2022",
+        "subtitle": "Application Development Intern | New York, NY",
+        "details": [
+            "Automated the process for generating thousands of business card prototypes using Adobe InDesign, cutting time to production by 50%.",
+            "Increased the accuracy of employee data by 20% by identifying null data bottlenecks in Excel database, improving data quality."
         ],
-        tags: ["JavaScript", "Angular", "Bootstrap", "Nodejs", "Jenkins"],
-        icon: "qrcode",
-    },
-    {
-        title: "ThinkPedia LLP",
-        duration: "May 2019 - June 2019",
-        subtitle: "SDE Intern",
-        details: [
-            `Designed and developed a social media post management panel, improving collaboration efficiency by 50 percent.`,
-        ],
-        tags: ["JavaScript", "Angular", "Bootstrap", "Java", "Spring Boot"],
-        icon: "group",
+        "tags": ["Adobe InDesign", "Excel", "Data Automation"],
+        "icon": "building"
     },
 ];
 

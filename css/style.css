@@ -235,8 +235,8 @@ figure figcaption {
     margin: 0 0 10px 0;
     padding: 0;
     list-style: none;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -2367,4 +2367,33 @@ strong {
     font-weight: 700;
     letter-spacing: 1.5px;
     margin-top: 12px;
+}
+
+.name-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    gap: 10px;
+}
+
+.dark {
+    color: #33383D;
+}
+
+.brown {
+    color: #A35D2D;
+}
+
+#bio,
+#bio2,
+#skills {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.dark-mode .name-title .dark {
+    color: white !important;
 }

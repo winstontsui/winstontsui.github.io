@@ -1,5 +1,6 @@
 import {
     bio,
+    bio2,
     skills,
     education,
     experience,
@@ -70,7 +71,7 @@ function mapBasicResponse(basics) {
     } = basics;
 
     // added title of page
-    window.parent.document.title = name;
+    window.parent.document.title = "Winston Tsui";
 }
 
 function populateBio(items, id) {
@@ -444,6 +445,7 @@ function getBlogDate(publishDate) {
 }
 
 populateBio(bio, "bio");
+populateBio(bio2, "bio2");
 
 populateSkills(skills, "skills");
 
