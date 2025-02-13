@@ -4,10 +4,11 @@ export const bio = [
     "<strong> DevOps and Automation: </strong> Streamlining CI/CD workflows with GitHub Actions, Docker, and Kubernetes for scalable deployments. Preparing for GitHub Actions Certification.",
     "<strong> AI app development: </strong> Experimenting with local AI apps using Ollama and fine tuning models.",
     "<strong> Semantic Book Recommender: </strong> An NLP-based recommendation system with OpenAI, LangChain, FAISS, and Gradio to personalize book suggestions.",
+
 ];
 
 export const bio2 = [
-    "I am an aspiring software engineer🙏🤩 who loves creating cool solutions with technology. I love learning new topics and building amazing apps. My background is in app development, pervasive computing and machine learning. I'm looking for ways to improve software performance and efficiency. My current interest is in algorithmic trading, machine learning, and the automation of workflows. Outside of coding, I'm a huge fan of NYC trains and coffee. My favorite city is Montreal."
+    "I am an aspiring software engineer🙏🤩 who loves creating cool solutions with technology. I love learning new topics and building amazing apps. My background is in app development, pervasive computing and machine learning. I'm looking for ways to improve software performance and efficiency. My current interests are in algorithmic trading, machine learning, and the automation of workflows. Outside of coding, I'm a huge fan of NYC trains and coffee. My favorite city is Montreal."
 ];
 
 
