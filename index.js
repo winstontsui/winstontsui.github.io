@@ -12,6 +12,13 @@ import { URLs } from "./user-data/urls.js";
 
 const { medium, gitConnected, gitRepo } = URLs;
 
+const featuredRepos = [
+    { author: "winstontsui", name: "uberclone" },
+    { author: "winstontsui", name: "PythonMultiRAGLangflowAgent" },
+    { author: "winstontsui", name: "e-commerce" },
+    { author: "winstontsui", name: "leetcode-problems" }
+];
+
 async function fetchBlogsFromMedium(url) {
     try {
         const response = await fetch(url);
@@ -27,12 +34,20 @@ async function fetchBlogsFromMedium(url) {
 async function fetchReposFromGit(url) {
     try {
         const response = await fetch(url);
-        const items = await response.json();
+        let items = await response.json();
+
+        items = items.filter(repo =>
+            featuredRepos.some(featured =>
+                repo.name === featured.name
+            )
+        );
+
         populateRepo(items, "repos");
     } catch (error) {
-        throw new Error(`Error in fetching the blogs from repos: ${error}`);
+        throw new Error(`Error in fetching the repos: ${error}`);
     }
 }
+
 
 async function fetchGitConnectedData(url) {
     try {
@@ -193,99 +208,86 @@ function populateBlogs(items, id) {
 
 function populateRepo(items, id) {
     const projectdesign = document.getElementById(id);
-    const count = 4; // Adjust this count based on the number of repos you want to display
 
-    // Set up a wrapper div to hold repo cards in rows of 2
+    // Clear previous content before adding new ones
+    projectdesign.innerHTML = "";
+
+    if (items.length === 0) {
+        projectdesign.innerHTML = "<p>No repositories found.</p>";
+        return;
+    }
+
     const rowWrapper = document.createElement("div");
-    rowWrapper.style =
-        "display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;";
+    rowWrapper.style = "display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;";
     projectdesign.appendChild(rowWrapper);
 
-    for (let i = 0; i < count; i++) {
-        // Create elements for each repo card
+    for (let i = 0; i < items.length; i++) {
+        const repo = items[i];
+
         const repoCard = document.createElement("div");
         repoCard.className = "repo-card";
         repoCard.style = `
-            flex: 1 0 48%;  /* Two cards in one row */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 14px;
-            background: linear-gradient(135deg, #ffdd99, #f9bf3f);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
-            cursor: pointer;
-        `;
+          flex: 1 0 100%;  
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 12px;
+          padding: 16px;
+          font-size: 14px;
+          background: linear-gradient(135deg, #ffdd99, #f9bf3f);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s ease-in-out;
+          cursor: pointer;
+      `;
 
-        // Make the card clickable by wrapping the content inside an anchor tag
         const repoLink = document.createElement("a");
-        repoLink.href = `https://github.com/${items[i].author}/${items[i].name}`;
+        repoLink.href = `https://github.com/${repo.author}/${repo.name}`;
         repoLink.target = "_blank";
-        repoLink.style =
-            "text-decoration: none; color: black; display: block; height: 100%;";
+        repoLink.style = "text-decoration: none; color: black; display: block; height: 100%;";
 
         repoCard.appendChild(repoLink);
 
-        // Repository name
         const repoName = document.createElement("h4");
         repoName.className = "repo-heading";
-        repoName.innerHTML = items[i].name;
+        repoName.innerHTML = repo.name;
         repoName.style = "margin: 0; font-size: 18px; font-weight: bold;";
         repoLink.appendChild(repoName);
 
-        // Repository description
-        const repoDescription = document.createElement("p");
-        repoDescription.className = "repo-description";
-        repoDescription.innerHTML = items[i].description;
-        repoDescription.style = "margin-top: 8px; font-size: 12px; color: #555;";
-        repoLink.appendChild(repoDescription);
+        // if (repo.description) {
+        //     const repoDescription = document.createElement("p");
+        //     repoDescription.className = "repo-description";
+        //     repoDescription.innerHTML = repo.description;
+        //     repoDescription.style = "margin-top: 8px; font-size: 12px; color: #555;";
+        //     repoLink.appendChild(repoDescription);
+        // }
 
-        // Stats row (Language, Stars, Forks)
-        const statsRow = document.createElement("div");
-        statsRow.style = `
-            display: flex; 
-            align-items: center; 
-            gap: 16px; 
-            margin-top: 12px; 
-            font-size: 12px; 
-            color: #666;
+        const imageContainer = document.createElement("div");
+        imageContainer.style = `
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
         `;
 
-        // Language
-        const languageDiv = document.createElement("div");
-        languageDiv.style = "display: flex; align-items: center; gap: 4px;";
-        languageDiv.innerHTML = `
-            <span style="width: 8px; height: 8px; background-color: #666; border-radius: 50%; display: inline-block;"></span>
-            ${items[i].language}
-        `;
-        statsRow.appendChild(languageDiv);
+        const img1 = document.createElement("img");
+        img1.src = "https://via.placeholder.com/50"; // Replace with actual image URL
+        img1.alt = "First Image";
+        img1.style = "width: 50px; height: 50px; border-radius: 8px;";
 
-        // Stars
-        const starsDiv = document.createElement("div");
-        starsDiv.style = "display: flex; align-items: center; gap: 4px;";
-        starsDiv.innerHTML = `
-            <img src="https://img.icons8.com/ios-filled/16/666666/star--v1.png" alt="Stars">
-            ${items[i].stars}
-        `;
-        statsRow.appendChild(starsDiv);
+        // Second Image
+        const img2 = document.createElement("img");
+        img2.src = "https://via.placeholder.com/50"; // Replace with actual image URL
+        img2.alt = "Second Image";
+        img2.style = "width: 50px; height: 50px; border-radius: 8px;";
 
-        // Forks
-        const forksDiv = document.createElement("div");
-        forksDiv.style = "display: flex; align-items: center; gap: 4px;";
-        forksDiv.innerHTML = `
-            <img src="https://img.icons8.com/ios-filled/16/666666/code-fork.png" alt="Forks">
-            ${items[i].forks}
-        `;
-        statsRow.appendChild(forksDiv);
+        imageContainer.appendChild(img1);
+        imageContainer.appendChild(img2);
+        repoLink.appendChild(imageContainer);
 
-        repoLink.appendChild(statsRow);
-
-        // Add the repo card to the row wrapper
         rowWrapper.appendChild(repoCard);
     }
 }
+
 
 function populateExp_Edu(items, id) {
     let mainContainer = document.getElementById(id);

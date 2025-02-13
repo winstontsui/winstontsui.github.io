@@ -287,8 +287,8 @@
     }
     
     #colorlib-aside #colorlib-main-menu ul li.active a {
-        font-size: 15px;
-        font-weight: 600;
+        font-size: 21px;
+        font-weight: 700;
     }
     
     #colorlib-aside #colorlib-main-menu ul li.active a:after {
@@ -579,7 +579,7 @@
         padding: 0 4.5em;
     }
     
-    @media screen and (max-width: 758px) {
+    @media screen and (max-width: 765px) {
         .colorlib-narrow-content {
             width: 100%;
             padding: 0 1em;
@@ -596,6 +596,7 @@
     .colorlib-profile,
     .colorlib-projects,
     .colorlib-education,
+    .colorlib-resume,
     .colorlib-blogs,
     .colorlib-work,
     .colorlib-about,
@@ -620,6 +621,7 @@
         .colorlib-profile,
         .colorlib-projects,
         .colorlib-education,
+        .colorlib-resume,
         .colorlib-work,
         .colorlib-about,
         .colorlib-installation,
@@ -2286,6 +2288,10 @@
     
     .repo-card {
         background-color: #fff;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        max-width: 100%;
         border-radius: 8px;
         padding: 20px;
         margin: 0;
