@@ -1,22 +1,22 @@
 export const featuredRepos = [{
         author: "winstontsui",
         name: "uberclone",
-        images: ["./user-data/uber1.png", "./user-data/uber2.png"],
+        images: ["./user-data/uber1.png"],
     },
     {
         author: "winstontsui",
         name: "PythonMultiRAGLangflowAgent",
-        images: ["./user-data/multiagentrag1.png", "./user-data/multiagentrag2.png"],
+        images: ["./user-data/multiagentrag1.png"],
     },
     {
         author: "winstontsui",
         name: "e-commerce",
-        images: ["./user-data/ecommerce1.png", "./user-data/ecommerce2.png"],
+        images: ["./user-data/ecommerce1.png"],
     },
     {
         author: "winstontsui",
         name: "leetcode-problems",
-        images: ["./user-data/leetcode1.png", "./user-data/leetcode2.png"],
+        images: ["./user-data/leetcode1.png"],
     },
 ];
 
