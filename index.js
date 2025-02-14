@@ -6,18 +6,12 @@ import {
     experience,
     // trekking,
     footer,
+    featuredRepos
 } from "./user-data/data.js";
 
 import { URLs } from "./user-data/urls.js";
 
 const { medium, gitConnected, gitRepo } = URLs;
-
-const featuredRepos = [
-    { author: "winstontsui", name: "uberclone" },
-    { author: "winstontsui", name: "PythonMultiRAGLangflowAgent" },
-    { author: "winstontsui", name: "e-commerce" },
-    { author: "winstontsui", name: "leetcode-problems" }
-];
 
 async function fetchBlogsFromMedium(url) {
     try {
@@ -36,18 +30,21 @@ async function fetchReposFromGit(url) {
         const response = await fetch(url);
         let items = await response.json();
 
-        items = items.filter(repo =>
-            featuredRepos.some(featured =>
-                repo.name === featured.name
-            )
-        );
+        items = items
+            .filter(repo => featuredRepos.some(featured => repo.name === featured.name))
+            .map(repo => {
+                const featuredRepo = featuredRepos.find(f => f.name === repo.name);
+                return {
+                    ...repo,
+                    images: featuredRepo ? featuredRepo.images : [],
+                };
+            });
 
         populateRepo(items, "repos");
     } catch (error) {
         throw new Error(`Error in fetching the repos: ${error}`);
     }
 }
-
 
 async function fetchGitConnectedData(url) {
     try {
@@ -208,9 +205,7 @@ function populateBlogs(items, id) {
 
 function populateRepo(items, id) {
     const projectdesign = document.getElementById(id);
-
-    // Clear previous content before adding new ones
-    projectdesign.innerHTML = "";
+    projectdesign.innerHTML = ""; // Clear previous content
 
     if (items.length === 0) {
         projectdesign.innerHTML = "<p>No repositories found.</p>";
@@ -227,18 +222,18 @@ function populateRepo(items, id) {
         const repoCard = document.createElement("div");
         repoCard.className = "repo-card";
         repoCard.style = `
-          flex: 1 0 100%;  
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          border-radius: 12px;
-          padding: 16px;
-          font-size: 14px;
-          background: linear-gradient(135deg, #ffdd99, #f9bf3f);
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-          transition: transform 0.2s ease-in-out;
-          cursor: pointer;
-      `;
+        flex: 1 0 100%;  
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 12px;
+        padding: 16px;
+        font-size: 14px;
+        background: linear-gradient(135deg, #ffdd99, #f9bf3f);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+    `;
 
         const repoLink = document.createElement("a");
         repoLink.href = `https://github.com/${repo.author}/${repo.name}`;
@@ -253,40 +248,39 @@ function populateRepo(items, id) {
         repoName.style = "margin: 0; font-size: 18px; font-weight: bold;";
         repoLink.appendChild(repoName);
 
-        // if (repo.description) {
-        //     const repoDescription = document.createElement("p");
-        //     repoDescription.className = "repo-description";
-        //     repoDescription.innerHTML = repo.description;
-        //     repoDescription.style = "margin-top: 8px; font-size: 12px; color: #555;";
-        //     repoLink.appendChild(repoDescription);
-        // }
+        if (repo.description) {
+            const repoDescription = document.createElement("p");
+            repoDescription.className = "repo-description";
+            repoDescription.innerHTML = repo.description;
+            repoDescription.style = "margin-top: 8px; font-size: 12px; color: #555;";
+            repoLink.appendChild(repoDescription);
+        }
 
-        const imageContainer = document.createElement("div");
-        imageContainer.style = `
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        `;
+        if (repo.images && repo.images.length > 0) {
+            const imageContainer = document.createElement("div");
+            imageContainer.style = `
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+              object-fit: cover;
+              margin-top: 10px;
+          `;
 
-        const img1 = document.createElement("img");
-        img1.src = "https://via.placeholder.com/50"; // Replace with actual image URL
-        img1.alt = "First Image";
-        img1.style = "width: 50px; height: 50px; border-radius: 8px;";
+            repo.images.forEach(imagePath => {
+                const img = document.createElement("img");
+                img.src = imagePath;
+                img.alt = `${repo.name} preview`;
+                img.style = "width: 300px; object-fit: cover; height: 300px; border-radius: 8px;";
+                imageContainer.appendChild(img);
+            });
 
-        // Second Image
-        const img2 = document.createElement("img");
-        img2.src = "https://via.placeholder.com/50"; // Replace with actual image URL
-        img2.alt = "Second Image";
-        img2.style = "width: 50px; height: 50px; border-radius: 8px;";
-
-        imageContainer.appendChild(img1);
-        imageContainer.appendChild(img2);
-        repoLink.appendChild(imageContainer);
+            repoLink.appendChild(imageContainer);
+        }
 
         rowWrapper.appendChild(repoCard);
     }
 }
+
 
 
 function populateExp_Edu(items, id) {

@@ -1,3 +1,25 @@
+export const featuredRepos = [{
+        author: "winstontsui",
+        name: "uberclone",
+        images: ["./user-data/uber1.png", "./user-data/uber2.png"],
+    },
+    {
+        author: "winstontsui",
+        name: "PythonMultiRAGLangflowAgent",
+        images: ["./user-data/multiagentrag1.png", "./user-data/multiagentrag2.png"],
+    },
+    {
+        author: "winstontsui",
+        name: "e-commerce",
+        images: ["./user-data/ecommerce1.png", "./user-data/ecommerce2.png"],
+    },
+    {
+        author: "winstontsui",
+        name: "leetcode-problems",
+        images: ["./user-data/leetcode1.png", "./user-data/leetcode2.png"],
+    },
+];
+
 export const bio = [
     "<strong> Algorithmic Trading: </strong> A trading script predicting future stock prices using Python, Backtrader, and TA-Lib. Implementing Bollinger Bands, momentum strategies, and backtesting.",
     "<strong> Applied Machine Learning: </strong> A convolutional neural network using Keras/TensorFlow to break CAPTCHAs, using OpenCV for image preprocessing and Tesseract for OCR-based recognition.",

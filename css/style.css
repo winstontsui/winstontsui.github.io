@@ -2297,6 +2297,15 @@
         margin: 0;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex: 1 1 calc(50% - 16px);
+        min-width: 300px;
+        box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+        .repo-card {
+            flex: 1 1 100%;
+        }
     }
     
     .repo-card:hover {
