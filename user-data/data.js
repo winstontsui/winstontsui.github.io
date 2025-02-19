@@ -13,11 +13,11 @@ export const featuredRepos = [{
         name: "e-commerce",
         images: ["./user-data/ecommerce1.png"],
     },
-    {
-        author: "winstontsui",
-        name: "leetcode-problems",
-        images: ["./user-data/leetcode1.png"],
-    },
+    // {
+    //     author: "winstontsui",
+    //     name: "leetcode-problems",
+    //     images: ["./user-data/leetcode1.png"],
+    // },
 ];
 
 export const bio = [
@@ -59,7 +59,7 @@ export const experience = [{
     },
     {
         "title": "Cornell University",
-        "duration": "June 2024 – December 2024",
+        "duration": "June 2024 - December 2024",
         "subtitle": "Health Tech Research Assistant | New York, NY",
         "details": [
             "Implemented iOS background task management system using Swift and BackgroundTasks, increasing users’ task completion rates by 20%.",
@@ -72,7 +72,7 @@ export const experience = [{
     },
     {
         "title": "NYC Department of Design and Construction",
-        "duration": "June 2022 – August 2022",
+        "duration": "June 2022 - August 2022",
         "subtitle": "Application Development Intern | New York, NY",
         "details": [
             "Automated the process for generating thousands of business card prototypes using Adobe InDesign, cutting time to production by 50%.",
@@ -113,14 +113,14 @@ export const education = [{
         tags: ["Database Management", "Software Specification and Design", "Software Implementation", "Computer Graphics", "Data Structures", "Algorithms"],
         icon: "graduation-cap",
     },
-    {
-        title: "High School",
-        duration: "2017 - 2021",
-        subtitle: "High School for Math, Science and Engineering, New York",
-        details: [],
-        tags: ["Computer Science", "Data Structures", "Algorithms"],
-        icon: "graduation-cap",
-    },
+    // {
+    //     title: "High School",
+    //     duration: "2017 - 2021",
+    //     subtitle: "High School for Math, Science and Engineering, New York",
+    //     details: [],
+    //     tags: ["Computer Science", "Data Structures", "Algorithms"],
+    //     icon: "graduation-cap",
+    // },
 ];
 
 export const footer = [{
