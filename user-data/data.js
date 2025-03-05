@@ -40,7 +40,7 @@ export const bio = [
 ];
 
 export const bio2 = [
-    "I am an aspiring software engineer🙏🤩 who loves creating cool solutions with technology. I love learning new topics and building amazing apps. My background is in app development, pervasive computing and machine learning. I'm looking for ways to improve software performance and efficiency. My current interests are in algorithmic trading, machine learning, and the automation of workflows. Outside of coding, I'm a huge fan of NYC trains and coffee. My favorite city is Montreal."
+    "I'm an aspiring software engineer🙏🤩 who loves software development. I love learning! I'm experienced in app development, software optimization and machine learning. I'm looking for ways to improve software performance and efficiency. My current interests are in algorithmic trading, machine learning, and workflow automation. Outside of coding, I'm a huge fan of NYC trains and coffee. My favorite city is Montreal."
 ];
 
 
@@ -102,7 +102,7 @@ export const trekking = [
 ];
 
 export const education = [{
-        title: "MEng in Computer Science",
+        title: "Master in Computer Science",
         duration: "2024 - 2025",
         subtitle: "Cornell Tech, New York",
         details: [],
@@ -116,7 +116,7 @@ export const education = [{
         icon: "book",
     },
     {
-        title: "BS in Computer Science",
+        title: "Bachelor in Computer Science",
         duration: "2021 - 2024",
         subtitle: "Syracuse University, New York",
         details: [],

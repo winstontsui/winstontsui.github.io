@@ -193,6 +193,7 @@
     }
     
     #colorlib-aside #colorlib-logo {
+        max-width: 100%;
         text-align: right;
         font-weight: 700;
         font-size: 30px;
