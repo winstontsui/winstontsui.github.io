@@ -28,28 +28,29 @@ async function fetchBlogsFromMedium(url) {
 async function fetchReposFromGit(url) {
     try {
         const response = await fetch(url);
-        let items = await response.json();
+        let fetchedRepos = await response.json();
 
-        items = items
-            .filter(repo => featuredRepos.some(featured => repo.name === featured.name))
-            .map(repo => {
-                const featuredRepo = featuredRepos.find(f => f.name === repo.name);
-                return {
-                    ...repo,
-                    images: featuredRepo ? featuredRepo.images : [],
-                };
-            });
+        // Ensure only the featuredRepos are displayed, but try to add additional details from fetchedRepos
+        let items = featuredRepos.map(featuredRepo => {
+            const fetchedRepo = fetchedRepos.find(repo => repo.name.toLowerCase() === featuredRepo.name.toLowerCase());
+
+            return {
+                ...featuredRepo, // Start with the predefined featuredRepo
+                description: fetchedRepo ? fetchedRepo.description : "No description available.",
+                stars: fetchedRepo ? fetchedRepo.stargazers_count : 0, // Adding stars if available
+                lastUpdated: fetchedRepo ? fetchedRepo.updated_at : "N/A",
+            };
+        });
 
         populateRepo(items, "repos");
     } catch (error) {
-        throw new Error(`Error in fetching the repos: ${error}`);
+        console.error(`Error fetching the repos: ${error}`);
     }
 }
 
 async function fetchGitConnectedData(url) {
     try {
         const response = await fetch(url);
-        console.log(response);
         const { basics } = await response.json();
         // populateBlogs(items, "blogs");
         mapBasicResponse(basics);
@@ -215,7 +216,7 @@ function populateRepo(items, id) {
     const rowWrapper = document.createElement("div");
     rowWrapper.style = "display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;";
     projectdesign.appendChild(rowWrapper);
-
+ 
     for (let i = 0; i < items.length; i++) {
         const repo = items[i];
 
@@ -273,7 +274,7 @@ function populateRepo(items, id) {
                 img.alt = `${repo.name} preview`;
                 img.style = `
                     max-width: 100%;
-                    width: 400px;
+                    width: 350px;
                     height: auto;
                     object-fit: cover;
                     border-radius: 8px;
@@ -287,14 +288,14 @@ function populateRepo(items, id) {
                     @media screen and (max-width: 768px) {
                         img[alt="${img.alt}"] {
                             width: 100%;
-                            max-width: 300px;
+                            max-width: 200px;
                             margin: 5px;
                         }
                     }
                     @media screen and (max-width: 480px) {
                         img[alt="${img.alt}"] {
                             width: 100%;
-                            max-width: 200px;
+                            max-width: 150px;
                             margin: 5px;
                         }
                     }

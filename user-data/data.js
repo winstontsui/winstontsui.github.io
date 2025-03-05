@@ -18,6 +18,11 @@ export const featuredRepos = [{
         name: "e-commerce",
         images: ["./user-data/ecommerce1.png", "./user-data/ecommerce2.png"],
     },
+    {
+        author: "winstontsui",
+        name: "VAE",
+        images: ["./user-data/vae1.png", "./user-data/vae2.png"],
+    },
     // {
     //     author: "winstontsui",
     //     name: "leetcode-problems",
