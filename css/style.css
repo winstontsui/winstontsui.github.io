@@ -366,6 +366,7 @@
     .container-wrap {
         max-width: 1370px;
         margin: 0 auto;
+        padding: 0 5px;
     }
     
     #colorlib-main {

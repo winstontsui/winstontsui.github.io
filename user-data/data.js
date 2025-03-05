@@ -1,17 +1,22 @@
 export const featuredRepos = [{
         author: "winstontsui",
         name: "uberclone",
-        images: ["./user-data/uber1.png"],
+        images: ["./user-data/uber1.png", "./user-data/uber2.png"],
+    },
+    {
+        author: "winstontsui",
+        name: "minitorch",
+        images: ["./user-data/minitorch1.png", "./user-data/minitorch2.png"],
     },
     {
         author: "winstontsui",
         name: "PythonMultiRAGLangflowAgent",
-        images: ["./user-data/multiagentrag1.png"],
+        images: ["./user-data/multiagentrag1.png", "./user-data/multiagentrag2.png"],
     },
     {
         author: "winstontsui",
         name: "e-commerce",
-        images: ["./user-data/ecommerce1.png"],
+        images: ["./user-data/ecommerce1.png", "./user-data/ecommerce2.png"],
     },
     // {
     //     author: "winstontsui",

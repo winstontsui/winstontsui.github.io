@@ -259,21 +259,51 @@ function populateRepo(items, id) {
         if (repo.images && repo.images.length > 0) {
             const imageContainer = document.createElement("div");
             imageContainer.style = `
-              display: flex;
-              justify-content: center;
-              gap: 10px;
-              object-fit: cover;
-              margin-top: 10px;
-          `;
-
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
+                width: 100%;
+            `;
+    
             repo.images.forEach(imagePath => {
                 const img = document.createElement("img");
                 img.src = imagePath;
                 img.alt = `${repo.name} preview`;
-                img.style = "width: 300px; object-fit: cover; height: 300px; border-radius: 8px;";
+                img.style = `
+                    max-width: 100%;
+                    width: 400px;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    margin: 10px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                `;
+    
+                // Add media query for responsiveness
+                const mediaStyle = document.createElement('style');
+                mediaStyle.textContent = `
+                    @media screen and (max-width: 768px) {
+                        img[alt="${img.alt}"] {
+                            width: 100%;
+                            max-width: 300px;
+                            margin: 5px;
+                        }
+                    }
+                    @media screen and (max-width: 480px) {
+                        img[alt="${img.alt}"] {
+                            width: 100%;
+                            max-width: 200px;
+                            margin: 5px;
+                        }
+                    }
+                `;
+                document.head.appendChild(mediaStyle);
+    
                 imageContainer.appendChild(img);
             });
-
+    
             repoLink.appendChild(imageContainer);
         }
 
